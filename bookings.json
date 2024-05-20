@@ -58,5 +58,17 @@
     "destination": "Los Angeles",
     "hotel": "Maria Motel",
     "guide": "No"
+  },
+  {
+    "booking_id": "32f59966-4d56-425e-920b-90d7e7f665d6",
+    "first_name": "khtd",
+    "last_name": "jyrs",
+    "phone_no": "jtg",
+    "booking_date": "2000-01-01 00:00:00",
+    "exit_date": "1999-12-31 00:00:00",
+    "booking_size": "-89465",
+    "destination": "kh",
+    "hotel": "kkkhtd",
+    "guide": "jt4q"
   }
 ]
