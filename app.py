@@ -3,7 +3,7 @@ import json
 import os
 from threading import Lock
 from uuid import uuid4
-from dateutil.parser import parse
+from datetime import datetime
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -35,7 +35,6 @@ def get_all_bookings():
 
     return jsonify(bookings), 200
 
-
 @app.route("/api/bookings", methods=["POST"])
 def create_booking():
     data = request.form
@@ -46,10 +45,25 @@ def create_booking():
 
     try:
         # Parse and validate date fields
-        booking_date = parse(data["booking_date"])
-        exit_date = parse(data["exit_date"])
-    except ValueError as e:
-        return jsonify({"error": "Invalid date format"}), 400
+        booking_date = datetime.strptime(data["booking_date"], "%Y-%m-%d")
+        exit_date = datetime.strptime(data["exit_date"], "%Y-%m-%d")
+        current_year = datetime.now().year
+        if booking_date.year != current_year or exit_date.year != current_year:
+            raise ValueError
+    except ValueError:
+        return jsonify({"error": "Invalid date format or not within the current year"}), 400
+
+    # Validate phone number
+    if not data["phone_no"].isdigit() or not (10 <= len(data["phone_no"]) <= 15):
+        return jsonify({"error": "Invalid phone number"}), 400
+
+    # Validate booking size
+    try:
+        booking_size = int(data["booking_size"])
+        if booking_size <= 0:
+            raise ValueError
+    except ValueError:
+        return jsonify({"error": "Invalid booking size"}), 400
 
     # Generate unique ID
     booking_id = str(uuid4())
@@ -61,10 +75,10 @@ def create_booking():
         "phone_no": data["phone_no"],
         "booking_date": str(booking_date),
         "exit_date": str(exit_date),
-        "booking_size": data["booking_size"],
+        "booking_size": booking_size,
         "destination": data["destination"],
         "hotel": data["hotel"],
-        "guide": data["guide"],
+        "guide": True if "guide" in data else False,
     }
 
     # Acquire lock
@@ -88,7 +102,8 @@ def not_found(error):
 # Serve the HTML form
 @app.route("/add_booking", methods=["GET"])
 def add_booking_form():
-    return render_template("add_booking.html")
+    current_year = datetime.now().year
+    return render_template("add_booking.html", current_year=current_year)
 
 if __name__ == "__main__":
     app.run(debug=True)

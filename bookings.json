@@ -60,15 +60,51 @@
     "guide": "No"
   },
   {
-    "booking_id": "32f59966-4d56-425e-920b-90d7e7f665d6",
-    "first_name": "khtd",
-    "last_name": "jyrs",
-    "phone_no": "jtg",
-    "booking_date": "2000-01-01 00:00:00",
-    "exit_date": "1999-12-31 00:00:00",
-    "booking_size": "-89465",
-    "destination": "kh",
-    "hotel": "kkkhtd",
-    "guide": "jt4q"
+    "booking_id": "8720b3d0-acc8-42fa-8b92-bbe1a20561d5",
+    "first_name": "Veron",
+    "last_name": "Afonso",
+    "phone_no": "05096588556",
+    "booking_date": "3222-03-23 00:00:00",
+    "exit_date": "0043-03-03 00:00:00",
+    "booking_size": 1,
+    "destination": "wdwda e1222",
+    "hotel": "1123313",
+    "guide": "1313232 "
+  },
+  {
+    "booking_id": "da6e7105-3357-49c7-8b7d-e5a0066c765c",
+    "first_name": "Veron",
+    "last_name": "Afonso",
+    "phone_no": "05096588556",
+    "booking_date": "2024-07-23 00:00:00",
+    "exit_date": "2024-12-03 00:00:00",
+    "booking_size": 1,
+    "destination": "wdwda e1222",
+    "hotel": "1123313",
+    "guide": true
+  },
+  {
+    "booking_id": "c2da41f4-e425-4b71-969f-5ba03a93ed91",
+    "first_name": "Ronald",
+    "last_name": "Daemon",
+    "phone_no": "97560986676",
+    "booking_date": "2024-06-11 00:00:00",
+    "exit_date": "2024-07-11 00:00:00",
+    "booking_size": 2,
+    "destination": "Tokyo",
+    "hotel": "Hyatt",
+    "guide": true
+  },
+  {
+    "booking_id": "be87441a-cd13-409a-a564-a0a749914802",
+    "first_name": "vo",
+    "last_name": "uof",
+    "phone_no": "0606060606",
+    "booking_date": "2024-06-05 00:00:00",
+    "exit_date": "2024-06-03 00:00:00",
+    "booking_size": 1,
+    "destination": "Paris",
+    "hotel": "Hilton",
+    "guide": true
   }
 ]
